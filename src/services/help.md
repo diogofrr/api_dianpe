@@ -1,0 +1,1 @@
+Contêm a lógica de negócios da sua aplicação. Eles interagem com os repositórios para buscar ou salvar dados e podem conter regras de validação e manipulação de dados.

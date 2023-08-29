@@ -1,0 +1,1 @@
+Definem as rotas da sua API, associando as URLs às funções dos controladores que manipulam as requisições. É onde você configura os endpoints da sua API.

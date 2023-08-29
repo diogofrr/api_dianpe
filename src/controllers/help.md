@@ -1,0 +1,1 @@
+Responsáveis por receber as requisições HTTP, chamar os serviços apropriados e enviar as respostas apropriadas. Eles lidam com a lógica específica da requisição e resposta.

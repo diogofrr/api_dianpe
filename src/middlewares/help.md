@@ -1,0 +1,1 @@
+Funções intermediárias que podem ser executadas antes ou depois das funções dos controladores. Por exemplo, middleware de autenticação ou validação.

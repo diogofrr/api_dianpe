@@ -1,0 +1,1 @@
+Definem as estruturas de dados que sua aplicação utiliza. Eles podem ser mapeamentos dos dados do banco de dados ou representações de objetos que a aplicação manipula.
