@@ -1,1 +1,0 @@
-Encarregados de interagir com o banco de dados ou outra fonte de dados. Eles abstraem as operações de acesso aos dados, permitindo que os serviços se concentrem na lógica da aplicação.

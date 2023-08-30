@@ -1,1 +1,0 @@
-Utilizada para realizar as configurações do banco de dados

@@ -7,7 +7,7 @@
     "dev": "npm run dev:server",
     "dev:server": "nodemon",
     "build": "tsup src",
-    "start": "node dist/index.js"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "Diogo Henrique Ferreira",
@@ -25,5 +25,22 @@
     "ts-node-dev": "^2.0.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
+  },
+  "tsup": {
+    "entry": "src/server.ts",
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "sourcemap": true,
+    "target": "node18",
+    "ignore": [
+      "src/types",
+      "src/**/*.sqlite",
+      "src/**/*.md"
+    ],
+    "loader": {
+      ".html": "text"
+    }
   }
-}
+}  
