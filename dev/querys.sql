@@ -88,17 +88,17 @@ VALUES (
 (
   'Tecnologia',
   'saude.jpg',
-  'saude'
+  'tecnologia'
 ),
 (
   'Industrial',
   'saude.jpg',
-  'saude'
+  'industrial'
 ),
 (
   'Administração',
   'saude.jpg',
-  'saude'
+  'administracao'
 );
 
 -- Repita para mais categorias...
