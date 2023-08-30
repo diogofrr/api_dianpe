@@ -4,6 +4,7 @@
   "description": "API desenvolvida para o projeto DIANPE",
   "main": "index.js",
   "scripts": {
+    "dev": "npm run dev:server",
     "dev:server": "nodemon",
     "build": "tsup src",
     "start": "node dist/index.js"

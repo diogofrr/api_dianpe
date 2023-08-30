@@ -8,7 +8,7 @@ class SchoolRepository {
           ID,
           NOME_INSTITUICAO,
           SITE,
-          IMG_LOGO,
+          IMG_LOGO_URL,
           INSTITUICAO_SLUG
         FROM
           TABELA_INSTITUICAO`,
