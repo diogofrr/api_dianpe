@@ -1,12 +1,12 @@
 import express from 'express';
 import schoolRoute from './routes/schoolRoute';
-// import { corsMiddleware } from './middlewares/corsMiddleware';
+import { corsMiddleware } from './middlewares/corsMiddleware';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middlewares
-// app.use(corsMiddleware) -> middleware de proteção de acesso
+app.use(corsMiddleware) // -> middleware de proteção de acesso
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
