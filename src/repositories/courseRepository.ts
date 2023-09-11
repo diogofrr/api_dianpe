@@ -29,6 +29,94 @@ class CourseRepository {
       });
     });
   }
+
+	async getAllCourses() {
+		return new Promise<any[]>((resolve, reject) => {
+			const query = `
+				SELECT
+					TC.id,
+					TC.nome,
+					TCC.nome_categoria,
+					TC.curso_slug,
+					TC.img_url
+				FROM
+					TABELA_CURSO TC
+				INNER JOIN
+					TABELA_CATEGORIA_CURSO TCC
+				ON TC.id_categoria_curso = TCC.id
+			`;
+
+			db.all(query, [], (error, rows) => {
+				if (error) {
+					reject(error);
+				} else {
+					resolve(rows);
+				}
+			});
+		});
+	}
+
+	async getCourseById(id: string) {
+		return new Promise<any>((resolve, reject) => {
+			const query = `
+				SELECT
+					TC.id,
+					TC.nome,
+					TC.id_categoria_curso,
+					TCC.nome_categoria,
+					TCC.img_url,
+					TCC.categoria_slug,
+					TC.curso_slug,
+					TC.img_url
+				FROM
+					TABELA_CURSO TC
+				INNER JOIN
+					TABELA_CATEGORIA_CURSO TCC
+				ON TC.id_categoria_curso = TCC.id
+				WHERE
+					TC.id = ?
+			`;
+
+			db.get(query, [id], (error, row) => {
+				if(error) {
+					reject(error);
+				} else {
+					resolve(row);
+				}
+			})
+		});
+	}
+
+	async getCourseByCategory(category: string) {
+		return new Promise<any[]>((resolve, reject) => {
+			const query = `
+				SELECT
+					TC.id,
+					TC.nome,
+					TC.id_categoria_curso,
+					TCC.nome_categoria,
+					TCC.img_url,
+					TCC.categoria_slug,
+					TC.curso_slug,
+					TC.img_url
+				FROM
+					TABELA_CURSO TC
+				INNER JOIN
+					TABELA_CATEGORIA_CURSO TCC
+				ON TC.id_categoria_curso = TCC.id
+				WHERE
+					TCC.nome_categoria IN (?)
+				`;
+
+			db.all(query, [category], (error, rows) => {
+				if(error) {
+					reject(error);
+				} else {
+					resolve(rows);
+				}
+			});
+		});
+	}
 }
 
 export default new CourseRepository();
