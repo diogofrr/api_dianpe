@@ -52,7 +52,7 @@ class SchoolController {
 
       const schoolWithCourses = {
         ...school,
-        coursesByCategory,
+        CURSOS_POR_CATEGORIA: coursesByCategory,
       };
 
       res.status(200).json(schoolWithCourses);
