@@ -5,10 +5,28 @@ class CourseController {
 	async listCourses(req: Request, res: Response) {
 		try {
 			const courses = await courseRepository.getAllCourses();
+      const coursesByCategory: any = {};
 
-			res.status(200).json({ courses });
+      courses.forEach((course) => {
+        const category = course.CATEGORIA_SLUG
+				
+        if (!coursesByCategory[category]) {
+					coursesByCategory[category] = {
+						NOME_CATEGORIA_F: course.NOME_CATEGORIA,
+						CURSOS: []
+					}
+        }
+
+				if (coursesByCategory[category].CURSOS.length < 5) {
+					delete course.NOME_CATEGORIA;
+					coursesByCategory[category].CURSOS.push(course);
+				}
+
+      });
+
+      res.status(200).json({ CURSOS_POR_CATEGORIA: coursesByCategory });
 		} catch(error) {
-			res.status(500).json({error: 'Erro ao obter lista de categorias.'});
+			res.status(500).json({error: 'Erro ao obter lista de cursos.'});
 		}
 	}
 
@@ -40,7 +58,7 @@ class CourseController {
 
 			res.status(200).json({ courses });
 		} catch(error) {
-			res.json({ error: 'Erro ao obter os dados dos cursos.' });
+			res.status(500).json({ error: 'Erro ao obter os dados dos cursos.' });
 		}
 	}
 }

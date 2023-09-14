@@ -7,7 +7,7 @@ class SchoolController {
     try {
       const schools = await schoolRepository.getAllSchools();
 
-      res.status(200).json({ schools });
+      res.status(200).json({ ESCOLAS: schools });
     } catch (error) {
       res.status(500).json({ error: 'Erro ao obter a lista de escolas.' });
     }
@@ -23,7 +23,7 @@ class SchoolController {
         return;
       }
 
-      res.status(200).json({ school });
+      res.status(200).json({ ESCOLA: school });
     } catch (error) {
       res.status(500).json({ error: 'Erro ao obter os dados da escola.' });
     }
@@ -41,20 +41,11 @@ class SchoolController {
 
       const courses = await courseRepository.getCoursesBySchoolId(schoolId);
 
-      const coursesByCategory: { [categorySlug: string]: any[] } = {};
-
-      courses.forEach((course) => {
-        if (!coursesByCategory[course.CATEGORIA_SLUG]) {
-          coursesByCategory[course.CATEGORIA_SLUG] = [];
-        }
-        coursesByCategory[course.CATEGORIA_SLUG].push(course);
-      });
-
       const schoolWithCourses = {
         ...school,
-        CURSOS_POR_CATEGORIA: coursesByCategory,
+        CURSOS: courses,
       };
-
+   
       res.status(200).json(schoolWithCourses);
     } catch (error) {
       res.status(500).json({ error: 'Erro ao buscar dados da escola.' });

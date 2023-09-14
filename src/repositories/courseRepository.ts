@@ -37,6 +37,7 @@ class CourseRepository {
 					TC.id,
 					TC.nome,
 					TCC.nome_categoria,
+					TCC.categoria_slug,
 					TC.curso_slug,
 					TC.img_url
 				FROM
@@ -118,5 +119,5 @@ class CourseRepository {
 		});
 	}
 }
-
+ 
 export default new CourseRepository();
