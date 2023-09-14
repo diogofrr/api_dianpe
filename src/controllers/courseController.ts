@@ -34,6 +34,7 @@ class CourseController {
 			
 			if(!categoria) {
 				res.status(400).json({ error: 'Erro ao obter categoria.' });
+				return;
 			}
 
 			const courses = await courseRepository.getCourseByCategory(categoria!.toString());

@@ -105,7 +105,7 @@ class CourseRepository {
 					TABELA_CATEGORIA_CURSO TCC
 				ON TC.id_categoria_curso = TCC.id
 				WHERE
-					TCC.nome_categoria IN (?)
+					TCC.nome_categoria LIKE %?%;
 				`;
 
 			db.all(query, [category], (error, rows) => {

@@ -61,3 +61,10 @@ db.serialize(() => {
 });
 
 export default db;
+
+
+/*
+TABELAS NORMALIZADAS KKKPJ
+
+
+*/

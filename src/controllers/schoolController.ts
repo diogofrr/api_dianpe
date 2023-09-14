@@ -60,6 +60,22 @@ class SchoolController {
       res.status(500).json({ error: 'Erro ao buscar dados da escola.' });
     }
   }
+
+  async getSchoolByCategory(req: Request, res: Response) {
+    try {
+      const { categoria } = req.query;
+
+      if(!categoria) {
+        res.status(400).json({ error: 'Erro ao obter categoria.' });
+        return;
+      }
+
+      const schools = await courseRepository.getSchoolByCategory(categoria!.toString());
+
+    } catch (error) {
+      res.json({ error: 'Erro ao obter dados das escolas' });
+    }
+  }
 }
 
 export default new SchoolController();
