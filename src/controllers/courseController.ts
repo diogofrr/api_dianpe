@@ -5,23 +5,23 @@ class CourseController {
 	async listCourses(req: Request, res: Response) {
 		try {
 			const courses = await courseRepository.getAllCourses();
+			const categories = await courseRepository.getAllCategories();
       const coursesByCategory: any = {};
 
       courses.forEach((course) => {
         const category = course.CATEGORIA_SLUG
 				
         if (!coursesByCategory[category]) {
+					const categoryEqual = categories.find((category) => category.CATEGORIA_SLUG === course.CATEGORIA_SLUG)
+
 					coursesByCategory[category] = {
-						NOME_CATEGORIA_F: course.NOME_CATEGORIA,
+						NOME_CATEGORIA_F: categoryEqual.NOME_CATEGORIA,
 						CURSOS: []
 					}
         }
-
-				if (coursesByCategory[category].CURSOS.length < 5) {
-					delete course.NOME_CATEGORIA;
-					coursesByCategory[category].CURSOS.push(course);
-				}
-
+				
+				delete course.NOME_CATEGORIA;
+				coursesByCategory[category].CURSOS.push(course);
       });
 
       res.status(200).json({ CURSOS_POR_CATEGORIA: coursesByCategory });

@@ -36,7 +36,6 @@ class CourseRepository {
 				SELECT
 					TC.id,
 					TC.nome,
-					TCC.nome_categoria,
 					TCC.categoria_slug,
 					TC.curso_slug,
 					TC.img_url
@@ -100,6 +99,7 @@ class CourseRepository {
 					TCC.categoria_slug,
 					TC.curso_slug,
 					TC.img_url
+					TC.descricao
 				FROM
 					TABELA_CURSO TC
 				INNER JOIN
@@ -117,6 +117,25 @@ class CourseRepository {
 				}
 			});
 		});
+	}
+
+	async getAllCategories() {
+		return new Promise<any[]>((resolve, reject) => {
+			const query = `
+				SELECT
+					*
+				FROM
+					TABELA_CATEGORIA_CURSO
+				`;
+
+			db.all(query, [], (error, rows) => {
+				if (error){
+					reject(error);
+				} else {
+					resolve(rows);
+				}
+			})
+		})
 	}
 }
  

@@ -15,7 +15,7 @@ class SchoolController {
 
   async getSchoolById(req: Request, res: Response) {
     try {
-      const id = req.params.id; // Pega o ID da rota
+      const id = req.params.id;
       const school = await schoolRepository.getSchoolById(id);
 
       if (!school) {
