@@ -1,18 +1,67 @@
 -- SQLite
 INSERT INTO TABELA_INSTITUICAO (
-    NOME_INSTITUICAO, TELEFONE, SITE, INSTITUICAO_SLUG, IMG_LOGO_URL, EMAIL,
+    NOME_INSTITUICAO, TELEFONE, SITE, INSTITUICAO_SLUG, FOTO_PERFIL, PLANO_DE_FUNDO, IMG_LOGO_URL, EMAIL,
     RUA, BAIRRO, NUM, COMPLEMENTO, CEP, CIDADE, UF
 ) VALUES
-    ('Escola de Tecnologia Digital TecnoAvanço', '34999456789', 'www.webwizardschool.com.br/', 'escola-tecnoavanco', 'https://i.postimg.cc/QtLZyXkW/Escola-de-Tecnologia-Digital-Tecno-Avan-o.png', 'info@tecdigital.com', 'Rua das Tecnologias', 'Jardim Europa', 123, NULL, 38400001,'Uberlândia', 'MG'),
-    ('Instituto de Ciência da Computação FuturoTech', '34999912456', 'www.cybersafeinstitute.com.br', 'instituto-futurotech', 'https://i.postimg.cc/mkBfT8nL/Instituto-de-Ci-ncia-da-Computa-o-Futuro-Tech.png', 'contato@cienciadofuturo.com', 'Rua da Segurança Cibernética', 'Jardim California', 456, NULL, 38400002,'Uberlândia', 'MG'),
-    ('Faculdade de Gestão Empresarial AdministraBrasil', '34999987654', 'www.administracaototalinstitute.com.br', 'faculdade-administrabrasil', 'https://i.postimg.cc/2yGpynp4/Faculdade-de-Gest-o-Empresarial-Administra-Brasil.png', 'atendimento@administracaototal.com', 'Avenida da Administração', 'Jardim Das Acácias', 789, NULL, 38400003,'Uberlândia', 'MG'),
-    ('Escola de Administração Executiva Empreendeli', '34998461247', 'www.marketedgeacademy.com.br', 'escola-empreendeli', 'https://i.postimg.cc/FRjXt2DC/Escola-de-Administra-o-Executiva-Empreendeli.png', 'suporte@admexecutiva.com', 'Rua do Marketing', 'Jardim Holanda', 567, NULL, 38400004,'Uberlândia', 'MG'),
-    ('Centro de Saúde Integrada SaúdeVital', '34999781234', 'www.medilearninstitute.com.br', 'centro-saudevital', 'https://i.postimg.cc/JhHWxyJL/Centro-de-Sa-de-Integrada-Sa-de-Vital.png', 'contato@saudevital.com', 'Rua da Medicina', 'Jardim Brasília', 321, NULL, 38400005, 'Uberlândia', 'MG'),
-    ('Instituto de Medicina Avançada VidaSaudável', '34991235678', 'www.medicalproschool.com.br', 'instituto-vidasaudavel', 'https://i.postimg.cc/YSWJg5K2/Instituto-de-Medicina-Avan-ada-Vida-Saud-vel.png', 'atendimento@medicinaavancada.com', 'Avenida dos Profissionais de Saúde', 'Jardim Karaiba', 234, NULL, 38400006,'Uberlândia', 'MG'),
-    ('Escola de Criatividade e Expressão Visual', '34997842525', 'www.criatividadevisual.com.br', 'escola-criatividadevisual', 'https://i.postimg.cc/J47VgYJK/Escola-de-Criatividade-e-Express-o-Visual.png', 'contato@criatividadevisual.com', 'Rua da Expressão Artística', 'Brasil ', 789, NULL, 38400007,'Uberlândia', 'MG'),
-    ('Instituto de Arte e Design Brasil', '34992358788', 'www.artedesignbrasil.com.br', 'instituto-artedesignbrasil', 'https://i.postimg.cc/VL7Qc9Ww/Instituto-de-Arte-e-Design-Brasil.png', 'info@artedesignbrasil.com', 'Avenida das Artes', 'Uberlândia', 654, NULL, 38400008,'Aclimação', 'MG'),
-    ('Instituto de Educação Pedagógica Brasil', '34993299174', 'www.educacaopedagogicabrasil.com.br', 'instituto-educacaopedagogicabrasil', 'https://i.postimg.cc/W1KBd2yf/Instituto-de-Educa-o-Pedag-gica-Brasil.png', 'atendimento@pedagogicabrasil.com', 'Rua da Educação', 'Ipanema', 987, NULL, 3840009,'Uberlândia', 'MG'),
-    ('Escola de Formação de Educadores Avançados', '34991257456', 'www.formacaoeducadoresavancados.com.br', 'escola-formacaoeducadoresavancados', 'https://i.postimg.cc/PfQnSnLP/Escola-de-Forma-o-de-Educadores-Avan-ados.png', 'contato@formacaoeducadores.com', 'Avenida da Formação Pedagógica', 'Cidade Jardim', 543, NULL, 38400010,'Uberlândia', 'MG');
+    ('Escola de Tecnologia Digital TecnoAvanço', '34999456789', 'www.webwizardschool.com.br/', 'escola-tecnoavanco', 
+    'https://img.freepik.com/vetores-gratis/logotipo-da-tecnologia-gradiente_52683-8525.jpg?w=826&t=st=1694783174~exp=1694783774~hmac=8b6aaef8d9714021ffd452066384bfc7b94cd0b2b587561950243ddbb2722f61',
+    'https://img.freepik.com/fotos-gratis/fundo-abstrato-com-design-baixo-poli_1048-8478.jpg?w=996&t=st=1694783272~exp=1694783872~hmac=d0f3d99d008cc7f3e65462668547f5240262d016d5dea4cfee861d1120047f5e',
+    'https://i.postimg.cc/QtLZyXkW/Escola-de-Tecnologia-Digital-Tecno-Avan-o.png',
+    'info@tecdigital.com', 'Rua das Tecnologias', 'Jardim Europa', 123, NULL, 38400001,'Uberlândia', 'MG'),
+    /**/
+    ('Instituto de Ciência da Computação FuturoTech', '34999912456', 'www.cybersafeinstitute.com.br', 'instituto-futurotech',
+    'https://img.freepik.com/vetores-gratis/logotipo-da-tecnologia-gradiente_52683-8565.jpg?w=826&t=st=1694783248~exp=1694783848~hmac=a0246b984f9442aa4f0fa1974788a7d7c4771e0ff3a7dc1ef3987e0a36f0d5e7',
+    'https://img.freepik.com/fotos-gratis/esfera-azul-brilhante-segurada-por-mao-humana-gerada-por-ia_188544-41033.jpg?w=1380&t=st=1694783282~exp=1694783882~hmac=faa7ac42553bec6bd87f148909dd5db3d8d493873d49c70741a20f1aefd98083',
+    'https://i.postimg.cc/mkBfT8nL/Instituto-de-Ci-ncia-da-Computa-o-Futuro-Tech.png',
+    'contato@cienciadofuturo.com', 'Rua da Segurança Cibernética', 'Jardim California', 456, NULL, 38400002,'Uberlândia', 'MG'),
+    /**/
+    ('Faculdade de Gestão Empresarial AdministraBrasil', '34999987654', 'www.administracaototalinstitute.com.br', 'faculdade-administrabrasil',
+    'https://img.freepik.com/vetores-gratis/colorfuell-do-icone-do-logotipo-do-anuncio_125964-408.jpg?w=826&t=st=1694783375~exp=1694783975~hmac=8d74dc44be4eccb1205a05e9ced84ebe2214a77ac2f3d939db0e2c31689086f3',
+    'https://img.freepik.com/vetores-gratis/ilustracao-do-negocio-de-inicializacao_53876-9142.jpg?w=996&t=st=1694783633~exp=1694784233~hmac=5c1caeeb160a13c5e14fd6ea0f5808690abed9e15e30ce17a5184e0535aa89f1',
+    'https://i.postimg.cc/2yGpynp4/Faculdade-de-Gest-o-Empresarial-Administra-Brasil.png',
+    'atendimento@administracaototal.com', 'Avenida da Administração', 'Jardim Das Acácias', 789, NULL, 38400003,'Uberlândia', 'MG'),
+    /**/
+    ('Escola de Administração Executiva Empreendeli', '34998461247', 'www.marketedgeacademy.com.br', 'escola-empreendeli',
+    'https://img.freepik.com/vetores-gratis/gradient-ap-logo-monograma_23-2150182468.jpg?w=826&t=st=1694783402~exp=1694784002~hmac=af8796cb9baa0cde62c13d50a042edd6ae016296f1b523bc2c3abfa08a5c1f76',
+    'https://img.freepik.com/fotos-gratis/conceito-de-branding-da-solucao-de-estrategia-de-gestao-corporativa_53876-167088.jpg?w=1380&t=st=1694783655~exp=1694784255~hmac=701b217dabde100633a427065e5dbd76505c236da4decd70d6a3fcf4319bc09c',
+    'https://i.postimg.cc/FRjXt2DC/Escola-de-Administra-o-Executiva-Empreendeli.png',
+    'suporte@admexecutiva.com', 'Rua do Marketing', 'Jardim Holanda', 567, NULL, 38400004,'Uberlândia', 'MG'),
+    /**/
+    ('Centro de Saúde Integrada SaúdeVital', '34999781234', 'www.medilearninstitute.com.br', 'centro-saudevital',
+    'https://img.freepik.com/vetores-gratis/modelo-de-logotipo_460848-8734.jpg?w=996&t=st=1694783723~exp=1694784323~hmac=665aaef31b29df401448b99b8e54e350e1af64d5a489d499bbb485a988a9d530',
+    'https://img.freepik.com/fotos-gratis/mao-segurando-o-conceito-de-saude-do-estetoscopio_53876-129536.jpg?w=1380&t=st=1694783748~exp=1694784348~hmac=7cccafbc9a74a8ee91c6bde4452135ccd033c3bc53fc74be5b1d6c3237476f36',
+    'https://i.postimg.cc/JhHWxyJL/Centro-de-Sa-de-Integrada-Sa-de-Vital.png',
+    'contato@saudevital.com', 'Rua da Medicina', 'Jardim Brasília', 321, NULL, 38400005, 'Uberlândia', 'MG'),
+    /**/
+    ('Instituto de Medicina Avançada VidaSaudável', '34991235678', 'www.medicalproschool.com.br', 'instituto-vidasaudavel',
+    'https://img.freepik.com/vetores-gratis/hospital-logo-design-vector-medical-cross_53876-136743.jpg?w=826&t=st=1694783676~exp=1694784276~hmac=ca40550f4caff5f333827f6a04b00278df89adcc64d23e309b988e49d86101a3',
+    'https://img.freepik.com/fotos-gratis/vista-frontal-de-uma-mulher-segurando-um-coracao-de-papel-com-batimento-cardiaco_23-2148635119.jpg?w=1380&t=st=1694783761~exp=1694784361~hmac=c0a5b7f249f07e03654c34135d6bd410594e15ee89e12b3cafe524bbdcf151aa',
+    'https://i.postimg.cc/YSWJg5K2/Instituto-de-Medicina-Avan-ada-Vida-Saud-vel.png',
+    'atendimento@medicinaavancada.com', 'Avenida dos Profissionais de Saúde', 'Jardim Karaiba', 234, NULL, 38400006,'Uberlândia', 'MG'),
+    /**/
+    ('Escola de Criatividade e Expressão Visual', '34997842525', 'www.criatividadevisual.com.br', 'escola-criatividadevisual',
+    'https://img.freepik.com/vetores-gratis/design-de-cartaz-do-dia-internacional-dos-artistas_1308-118797.jpg?w=826&t=st=1694783784~exp=1694784384~hmac=43f21704b7d35ee5335b301de06d9b2336cc827b72f215b05abc2cbf464d7b1f',
+    'https://img.freepik.com/fotos-gratis/cores-vibrantes-explodem-em-bolha-de-aquarela-confusa-gerada-por-ia_188544-9791.jpg?w=1380&t=st=1694783822~exp=1694784422~hmac=3690de2d04f4109803db5059d0642dce0c6b41845a3a3419865136065900539d',
+    'https://i.postimg.cc/J47VgYJK/Escola-de-Criatividade-e-Express-o-Visual.png',
+    'contato@criatividadevisual.com', 'Rua da Expressão Artística', 'Brasil ', 789, NULL, 38400007,'Uberlândia', 'MG'),
+    /**/
+    ('Instituto de Arte e Design Brasil', '34992358788', 'www.artedesignbrasil.com.br', 'instituto-artedesignbrasil',
+    'https://img.freepik.com/vetores-gratis/texturas-pintura-do-projeto-do-fundo_1343-68.jpg?w=826&t=st=1694783807~exp=1694784407~hmac=32037f08ccfa76e7e0135d04f13f1cb3a9d29ea38d7a550923084173b5e2b7e7',
+    'https://img.freepik.com/vetores-gratis/adesivo-de-vetor-da-mao-de-deus-pintura-famosa-da-criacao-de-adao-remixada-de-obras-de-arte-de-michelangelo-buonarroti_53876-125649.jpg?w=1480&t=st=1694783841~exp=1694784441~hmac=bbc7666cd93098f4e699bb0c45b92fa63d8efe8839a9f63d755a78f45a0f99be',
+    'https://i.postimg.cc/VL7Qc9Ww/Instituto-de-Arte-e-Design-Brasil.png',
+    'info@artedesignbrasil.com', 'Avenida das Artes', 'Uberlândia', 654, NULL, 38400008,'Aclimação', 'MG'),
+    /**/
+    ('Instituto de Educação Pedagógica Brasil', '34993299174', 'www.educacaopedagogicabrasil.com.br', 'instituto-educacaopedagogicabrasil',
+    'https://img.freepik.com/vetores-gratis/logotipo-plano-de-coruja_98292-2407.jpg?w=826&t=st=1694783909~exp=1694784509~hmac=971404be563b46b1cef5e3cc3b1290bb204c7660b9e87bf0ef2c9d01ecd5d92f',
+    'https://img.freepik.com/fotos-gratis/livro-aberto-deitado-na-pilha_23-2147845945.jpg?w=1380&t=st=1694784064~exp=1694784664~hmac=37f939c83da4f40020d366c13bcf96e61ba747dd14a4d5f121659e2683c19681',
+    'https://i.postimg.cc/W1KBd2yf/Instituto-de-Educa-o-Pedag-gica-Brasil.png',
+    'atendimento@pedagogicabrasil.com', 'Rua da Educação', 'Ipanema', 987, NULL, 3840009,'Uberlândia', 'MG'),
+    /**/
+    ('Escola de Formação de Educadores Avançados', '34991257456', 'www.formacaoeducadoresavancados.com.br', 'escola-formacaoeducadoresavancados',
+    'https://img.freepik.com/vetores-gratis/conceito-de-logotipo-de-educacao-ou-habilidade-com-design-de-arvore-criativa_1017-10008.jpg?w=826&t=st=1694784002~exp=1694784602~hmac=45dbe07dffec81dd99108a8716b415ece9667e5b7c27ec86852dc2d029bdfadf',
+    'https://img.freepik.com/fotos-gratis/vista-superior-dos-livros_23-2147617703.jpg?w=1380&t=st=1694784079~exp=1694784679~hmac=f9d886f17e0ea71819762c2b8f74c7326ce62f1a8af25e913649816240f44770',
+    'https://i.postimg.cc/PfQnSnLP/Escola-de-Forma-o-de-Educadores-Avan-ados.png',
+    'contato@formacaoeducadores.com', 'Avenida da Formação Pedagógica', 'Cidade Jardim', 543, NULL, 38400010,'Uberlândia', 'MG');
 
 INSERT INTO TABELA_CATEGORIA_CURSO (
   NOME_CATEGORIA,
