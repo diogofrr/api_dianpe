@@ -51,6 +51,25 @@ class SchoolController {
       res.status(500).json({ error: 'Erro ao buscar dados da escola.' });
     }
   }
+
+  async getSchoolByName(req: Request, res: Response) {    
+    try {
+      const query = req.query.query;
+  
+      if (!query) {
+        throw new Error();
+      }
+      const schools = await schoolRepository.searchSchool(query!.toString());
+
+      if (!schools) {
+        return res.status(404).json({ error: 'Pesquisa sem resultados.' });
+      }
+
+      res.status(200).json(schools)
+    } catch (error) {
+      res.status(500).json({ error: 'Erro ao pesquisar escola.' });
+    }
+  }
 }
 
 export default new SchoolController();

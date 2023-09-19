@@ -16,6 +16,7 @@ class CourseController {
 
 					coursesByCategory[category] = {
 						NOME_CATEGORIA_F: categoryEqual.NOME_CATEGORIA,
+						BANNER_CURSO: categoryEqual.IMG_URL,
 						CURSOS: []
 					}
         }
@@ -46,18 +47,23 @@ class CourseController {
 		}
 	}
 
-	async getCourseByCategory(req: Request, res: Response) {
+	async getCourseByName(req: Request, res: Response) {
 		try {
-			const { categoria } = req.query;
-			
-			if(!categoria) {
-				res.status(400).json({ error: 'Erro ao obter categoria.' });
+			const { query } = req.query;
+
+			if (!query) {
+				throw new Error();
 			}
 
-			const courses = await courseRepository.getCourseByCategory(categoria!.toString());
+			const courses = await courseRepository.searchCourse(query!.toString());
 
-			res.status(200).json({ courses });
+			if (!courses) {
+				res.status(404).json({ error: 'Pesquisa sem resultados.' })
+			}
+
+			res.status(200).json(courses);
 		} catch(error) {
+			console.log(error)
 			res.status(500).json({ error: 'Erro ao obter os dados dos cursos.' });
 		}
 	}

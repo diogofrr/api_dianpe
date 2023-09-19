@@ -64,10 +64,11 @@ class CourseRepository {
 					TC.nome,
 					TC.id_categoria_curso,
 					TCC.nome_categoria,
-					TCC.img_url,
+					TCC.img_url AS IMG_CATEGORIA,
 					TCC.categoria_slug,
 					TC.curso_slug,
-					TC.img_url
+					TC.img_url,
+					TC.descricao
 				FROM
 					TABELA_CURSO TC
 				INNER JOIN
@@ -137,6 +138,29 @@ class CourseRepository {
 			})
 		})
 	}
+
+	searchCourse(query: string) {
+    return new Promise((resolve, reject) => {
+      db.all(
+        `SELECT
+					ID,
+					NOME
+				FROM
+					TABELA_CURSO
+				WHERE
+					NOME
+				LIKE ?;`,
+        [`%${query}%`],
+        (err, rows) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(rows);
+          }
+        }
+      );
+    });
+  }
 }
  
 export default new CourseRepository();

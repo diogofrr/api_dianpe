@@ -43,6 +43,30 @@ class SchoolRepository {
       );
     });
   }
+
+  searchSchool(query: string) {
+    return new Promise((resolve, reject) => {
+      db.all(
+        `SELECT
+          ID,
+          NOME_INSTITUICAO
+        FROM 
+          TABELA_INSTITUICAO 
+        WHERE 
+          NOME_INSTITUICAO
+        LIKE ?;`,
+        [`%${query}%`],
+        (err, rows) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(rows);
+          }
+        }
+      );
+    });
+  }
 }
+
 
 export default new SchoolRepository();
