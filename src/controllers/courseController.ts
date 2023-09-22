@@ -7,6 +7,8 @@ class CourseController {
 			const courses = await courseRepository.getAllCourses();
 			const categories = await courseRepository.getAllCategories();
       const coursesByCategory: any = {};
+			let coursesKeys;
+			const coursesArray: any[] = []
 
       courses.forEach((course) => {
         const category = course.CATEGORIA_SLUG
@@ -16,7 +18,6 @@ class CourseController {
 
 					coursesByCategory[category] = {
 						NOME_CATEGORIA_F: categoryEqual.NOME_CATEGORIA,
-						BANNER_CURSO: categoryEqual.IMG_URL,
 						CURSOS: []
 					}
         }
@@ -25,7 +26,13 @@ class CourseController {
 				coursesByCategory[category].CURSOS.push(course);
       });
 
-      res.status(200).json({ CURSOS_POR_CATEGORIA: coursesByCategory });
+			coursesKeys = Object.keys(coursesByCategory);
+			
+			coursesKeys.forEach((key) => {
+				coursesArray.push(coursesByCategory[key])
+			})
+
+      res.status(200).json({ CURSOS_POR_CATEGORIA: coursesArray });
 		} catch(error) {
 			res.status(500).json({error: 'Erro ao obter lista de cursos.'});
 		}
