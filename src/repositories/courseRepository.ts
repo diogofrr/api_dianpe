@@ -64,7 +64,6 @@ class CourseRepository {
 					TC.nome,
 					TC.id_categoria_curso,
 					TCC.nome_categoria,
-					TCC.img_url AS IMG_CATEGORIA,
 					TCC.categoria_slug,
 					TC.curso_slug,
 					TC.img_url,
@@ -161,6 +160,33 @@ class CourseRepository {
       );
     });
   }
+
+	async getSchoolsByCourseId(courseId: string) {
+		return new Promise<any[]>((resolve, reject) => {
+			const query = `
+				SELECT
+				I.ID,
+				I.NOME_INSTITUICAO,
+				I.IMG_LOGO_URL,
+				I.INSTITUICAO_SLUG
+				FROM
+					TABELA_INSTITUICAO I
+				INNER JOIN
+					TABELA_CURSO_INSTITUICAO CI ON I.ID = CI.INSTITUICAO_ID
+				WHERE
+					CI.CURSO_ID = ?
+			`;
+	
+			db.all(query, [courseId], (error, rows) => {
+				if (error) {
+					reject(error);
+				} else {
+					resolve(rows);
+				}
+			});
+		});
+	}
+	
 }
  
 export default new CourseRepository();

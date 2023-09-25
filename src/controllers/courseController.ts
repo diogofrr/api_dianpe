@@ -41,15 +41,20 @@ class CourseController {
 	async getCourseById(req: Request, res: Response) {
 		try {
 			const { id } = req.params;
+
+			if (!id) throw new Error();
+
 			const course = await courseRepository.getCourseById(id);
+			const schools = await courseRepository.getSchoolsByCourseId(id);
 
 			if(!course) {
 				res.status(404).json( { error: 'Curso não encontrado.' });
 				return;
 			}
 			
-			res.status(200).json({ course });
+			res.status(200).json({ CURSO: course, ESCOLAS: schools });
 		} catch(error) {
+			console.log(error)
 			res.status(500).json({ error: 'Erro ao obter os dados do curso.' });
 		}
 	}
