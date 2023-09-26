@@ -1,7 +1,7 @@
 # API DIANPE
 Nesse arquivo você encontrará a documentação da API do projeto DIANPE e um breve tutorial de como utiliza-lá. 
 
-* Status: Em desenvolvimento 🚧
+* Status: Concluído ✅
 * Ambiente de produção: https://api-dianpe.onrender.com
 ---------------
 ## ⚙ Instalação e configuração
@@ -24,6 +24,9 @@ Nesse arquivo você encontrará a documentação da API do projeto DIANPE e um b
     ```
 
 ## 🛣 Rotas
+
+* **[Clique aqui para baixar a collection](https://drive.google.com/file/d/1JHn7-LJa_jYvGjvZxc_rQI5AaQDBSrWL/view?usp=sharing)**
+
 
 * Rota de **ESCOLAS**
   * `GET: /escolas/` -> Retorna uma lista com alguns necessários de todas as escolas cadastradas. Exemplo: 
@@ -67,40 +70,88 @@ Nesse arquivo você encontrará a documentação da API do projeto DIANPE e um b
       "CURSOS_POR_CATEGORIA": {}
     }
     ```
+  * `GET: /escolas/pesquisar?query=valor` -> Retorna escolas que batem de forma total ou parcial com o valor informado no parâmetro "query". Exemplo:
+    ```
+    query=a
+    ```
+
+    ```
+    [
+      {
+        "ID": 1,
+        "NOME_INSTITUICAO": "Escola de Tecnologia Digital TecnoAvanço"
+      },
+      {
+        "ID": 2,
+        "NOME_INSTITUICAO": "Instituto de Ciência da Computação FuturoTech"
+      }
+    ]
+    ```
+
 * Rota de **CURSOS**
   * `GET: /cursos/` -> Retorna todos os cursos cadastrados no banco de dados ordenados por categoria do curso.
     ```
     {
-      "CURSOS_POR_CATEGORIA": {
-          "tecnologia-da-informacao": {
-            "NOME_CATEGORIA_F": "Alfabeto",
-            "CURSOS": [
-              {
-                "ID": 1,
-                "NOME": "Curso A",
-                "CATEGORIA_SLUG": "alfabeto",
-                "CURSO_SLUG": "curso-a",
-                "IMG_URL": "https://www.fotos.com/cursoa"
-              },
-              ...
-            ]
-          },
-          "negocios-e-administracao": {
-            "NOME_CATEGORIA_F": "Negócios e Administração",
-            "CURSOS": [...]
-          },
-          "saude-e-medicina": {
-            "NOME_CATEGORIA_F": "Saúde e Medicina",
-            "CURSOS": [...]
-          },
-          "artes-e-design": {
-            "NOME_CATEGORIA_F": "Artes e Design",
-            "CURSOS":  [...]
-          },
-          "educacao": {
-            "NOME_CATEGORIA_F": "Educação",
-            "CURSOS":  [...]
-          }
-      }
+      "CURSOS_POR_CATEGORIA": [
+        {
+          "NOME_CATEGORIA_F": "Tecnologia da Informação",
+          "CURSOS": [
+            {
+              "ID": 1,
+              "NOME": "Técnico em Desenvolvimento de Software",
+              "CATEGORIA_SLUG": "tecnologia-da-informacao",
+              "CURSO_SLUG": "desenvolvimento-de-software",
+              "IMG_URL": "https://www.fotos.com/fotodocursoA"
+            },
+            {
+              "ID": 2,
+              "NOME": "Técnico em Suporte de Informática",
+              "CATEGORIA_SLUG": "tecnologia-da-informacao",
+              "CURSO_SLUG": "suporte-de-informatica",
+              "IMG_URL": "https://www.fotos.com/fotodocursoB"
+            }
+          ]
+        }
+      ]
     }
+    ```
+  * `GET: /cursos/:id` -> Retorna todos os dados de um curso e as escolas que oferecem de acordo com o id informado na URL. Exemplo:
+    ```
+    {
+      "CURSO": {
+          "ID": 4,
+          "NOME": "Curso de Segurança da Informação",
+          "ID_CATEGORIA_CURSO": 1,
+          "NOME_CATEGORIA": "Tecnologia da Informação",
+          "CATEGORIA_SLUG": "tecnologia-da-informacao",
+          "CURSO_SLUG": "seguranca-da-informacao",
+          "IMG_URL": "https://www.fotos.com/fotodocursoA",
+          "DESCRICAO": "Lorem Ipsum Dolor"
+      },
+      "ESCOLAS": [
+        {
+          "ID": 1,
+          "NOME_INSTITUICAO": "Escola A",
+          "IMG_LOGO_URL": "https://www.fotos.com/fotodaescolaA",
+          "INSTITUICAO_SLUG": "escola-a"
+        }
+      ]
+    }
+    ```
+  * `GET: /cursos/pesquisar?query=valor` -> Retorna cursos que batem de forma total ou parcial com o valor informado no parâmetro "query". Exemplo:
+    ```
+    query=dese
+    ```
+
+    ```
+    [
+      {
+        "ID": 1,
+        "NOME": "Técnico em Desenvolvimento de Software"
+      },
+      {
+        "ID": 25,
+        "NOME": "Curso de Desenho Artístico"
+      }
+    ]
     ```
